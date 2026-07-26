@@ -334,6 +334,102 @@ kbd {
   gap: 0.8rem;
 }
 
+.instruction-downloads {
+  max-width: 760px;
+  margin-top: 1.25rem;
+  padding: 1rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--card) 92%, var(--green));
+  box-shadow: 5px 5px 0 color-mix(in srgb, var(--green) 72%, transparent);
+}
+
+.download-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.download-kicker {
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.instruction-downloads h2 {
+  margin: 0.2rem 0 0;
+  font-family: var(--sans);
+  font-size: 1.15rem;
+  line-height: 1.25;
+}
+
+.instruction-downloads > p {
+  margin: 0.7rem 0 0;
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.55;
+}
+
+.download-all {
+  flex: 0 0 auto;
+  padding: 0.58rem 0.72rem;
+  border-radius: 9px;
+  background: var(--ink);
+  color: var(--paper);
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.download-all:hover {
+  color: var(--paper);
+  transform: translateY(-1px);
+}
+
+.download-grid {
+  display: grid;
+  margin-top: 0.8rem;
+  gap: 0.55rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.download-grid > a {
+  display: grid;
+  min-width: 0;
+  padding: 0.68rem;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--card);
+  color: var(--ink);
+  gap: 0.28rem;
+  text-decoration: none;
+  transition: 150ms ease;
+}
+
+.download-grid > a:hover {
+  border-color: var(--line-strong);
+  color: var(--ink);
+  transform: translateY(-2px);
+}
+
+.download-grid .label {
+  width: fit-content;
+}
+
+.download-grid b {
+  overflow-wrap: anywhere;
+  font-size: 0.82rem;
+}
+
+.download-grid small {
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 0.63rem;
+}
+
 .button {
   display: inline-flex;
   min-height: 44px;
@@ -1350,6 +1446,15 @@ pre .value {
 @media (max-width: 720px) {
   body {
     font-size: 15px;
+  }
+
+  .download-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .download-grid {
+    grid-template-columns: 1fr;
   }
 
   .topbar-inner,

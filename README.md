@@ -7,8 +7,9 @@ GitHub Spec Kit v0.14.2와 Google Cloud Open Knowledge Format(OKF) v0.2를 사�
 ## 구성
 
 - `docs/` — GitHub Pages에 바로 게시할 정적 HTML
-- `docs/downloads/` — 게시된 페이지에서 내려받을 청사진 ZIP과 Pages workflow
+- `docs/downloads/` — 게시된 페이지에서 내려받을 AI별 지침 팩, 청사진 ZIP과 Pages workflow
 - `examples/repository-blueprint/` — 새 저장소에 복사해 적용할 실전 청사진
+- `examples/instruction-packs/` — Codex·Claude Code·Gemini CLI의 전역·프로젝트·로컬 지침 원본
 - `examples/pages-actions.yml.example` — GitHub Actions로 Pages를 게시할 때 사용할 예제
 
 ## 로컬에서 읽기
