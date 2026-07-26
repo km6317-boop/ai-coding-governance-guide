@@ -1,0 +1,42 @@
+# Dependencies and build output
+node_modules/
+dist/
+build/
+coverage/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+secrets/
+**/secrets/
+*.pem
+*.key
+config/credentials.json
+
+# Claude personal state
+.claude/settings.local.json
+CLAUDE.local.md
+
+# Gemini personal state and caches
+.gemini/trustedFolders.json
+.gemini/mcp-oauth-tokens.json
+.gemini/tmp/
+.gemini/history/
+
+# Codex personal state and credentials
+.codex/auth.json
+.codex/sessions/
+.codex/log/
+.codex-log/
+
+# Editor and operating-system files
+.DS_Store
+Thumbs.db
+*.swp
+
+# Keep shared development artifacts in Git:
+# - .specify/ and specs/
+# - knowledge/
+# - AGENTS.md, CLAUDE.md, GEMINI.md
+# - reviewed project settings and Skill copies

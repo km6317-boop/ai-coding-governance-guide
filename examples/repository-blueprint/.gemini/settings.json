@@ -1,0 +1,31 @@
+{
+  "general": {
+    "defaultApprovalMode": "default"
+  },
+  "security": {
+    "environmentVariableRedaction": {
+      "enabled": true
+    }
+  },
+  "context": {
+    "fileName": "GEMINI.md",
+    "fileFiltering": {
+      "respectGitIgnore": true,
+      "respectGeminiIgnore": true
+    }
+  },
+  "skills": {
+    "enabled": true
+  },
+  "mcp": {
+    "excluded": [
+      "openaiDeveloperDocs"
+    ]
+  },
+  "mcpServers": {
+    "openaiDeveloperDocs": {
+      "httpUrl": "https://developers.openai.com/mcp",
+      "trust": false
+    }
+  }
+}
