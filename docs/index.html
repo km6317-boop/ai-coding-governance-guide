@@ -66,9 +66,14 @@
                 <span class="download-kicker">READY-TO-USE · 2026-07-26</span>
                 <h2 id="instruction-downloads-title">코딩 AI 지침 바로 받기</h2>
               </div>
-              <a class="download-all" href="./downloads/coding-ai-instructions-all.zip" download>
-                전체 묶음 ZIP <span aria-hidden="true">↓</span>
-              </a>
+              <div class="download-primary-actions">
+                <a class="download-view" href="#instruction-library">
+                  MD 바로 열람 <span aria-hidden="true">→</span>
+                </a>
+                <a class="download-all" href="./downloads/coding-ai-instructions-all.zip" download>
+                  전체 묶음 ZIP <span aria-hidden="true">↓</span>
+                </a>
+              </div>
             </div>
             <p>
               전역·프로젝트·로컬 범위와 이 가이드의 Spec Kit·OKF·보안·검증 원칙을
@@ -140,6 +145,176 @@
         <span>자연어 약속은 안내이고, 테스트·린트·보안 검사는 결정적인 병합 조건입니다.</span>
       </div>
     </div>
+
+    <section class="instruction-library" id="instruction-library" aria-labelledby="library-title">
+      <header class="library-heading">
+        <div>
+          <p class="eyebrow">Markdown library · ZIP 없이 확인</p>
+          <h2 id="library-title">지침 파일을 바로 읽고 복사하세요</h2>
+          <p>
+            파일을 선택하면 실제 ZIP에 포함되는 Markdown 원문을 표시합니다.
+            공통 계약에는 이 가이드의 5계층 운영, Spec Kit, OKF v0.2, Skill·MCP·Hook 경계,
+            worktree·CI 완료 조건이 포함되어 있습니다.
+          </p>
+        </div>
+        <span class="library-count">13 MD FILES</span>
+      </header>
+
+      <div class="library-shell">
+        <nav class="instruction-file-list" aria-label="열람할 지침 파일">
+          <div class="file-group">
+            <span>공통 원본</span>
+            <button
+              class="instruction-file active"
+              type="button"
+              data-instruction-source="./instructions/shared/AGENTS.md"
+              data-instruction-label="shared/AGENTS.md"
+              aria-pressed="true"
+            >
+              <b>AGENTS.md</b><small>5계층 공통 운영 계약</small>
+            </button>
+            <button
+              class="instruction-file"
+              type="button"
+              data-instruction-source="./instructions/README.md"
+              data-instruction-label="README.md"
+              aria-pressed="false"
+            >
+              <b>README.md</b><small>전체 설치 안내</small>
+            </button>
+          </div>
+
+          <div class="file-group">
+            <span>Codex</span>
+            <button
+              class="instruction-file"
+              type="button"
+              data-instruction-source="./instructions/codex/README.md"
+              data-instruction-label="codex/README.md"
+              aria-pressed="false"
+            >
+              <b>README.md</b><small>범위·설치 방법</small>
+            </button>
+            <button
+              class="instruction-file"
+              type="button"
+              data-instruction-source="./instructions/codex/global/AGENTS.md"
+              data-instruction-label="codex/global/AGENTS.md"
+              aria-pressed="false"
+            >
+              <b>Global AGENTS.md</b><small>~/.codex</small>
+            </button>
+            <button
+              class="instruction-file"
+              type="button"
+              data-instruction-source="./instructions/codex/local/component/AGENTS.md"
+              data-instruction-label="codex/local/component/AGENTS.md"
+              aria-pressed="false"
+            >
+              <b>Nested AGENTS.md</b><small>하위 폴더 범위</small>
+            </button>
+          </div>
+
+          <div class="file-group">
+            <span>Claude Code</span>
+            <button
+              class="instruction-file"
+              type="button"
+              data-instruction-source="./instructions/claude-code/README.md"
+              data-instruction-label="claude-code/README.md"
+              aria-pressed="false"
+            >
+              <b>README.md</b><small>범위·설치 방법</small>
+            </button>
+            <button
+              class="instruction-file"
+              type="button"
+              data-instruction-source="./instructions/claude-code/global/CLAUDE.md"
+              data-instruction-label="claude-code/global/CLAUDE.md"
+              aria-pressed="false"
+            >
+              <b>Global CLAUDE.md</b><small>~/.claude</small>
+            </button>
+            <button
+              class="instruction-file"
+              type="button"
+              data-instruction-source="./instructions/claude-code/project/CLAUDE.md"
+              data-instruction-label="claude-code/project/CLAUDE.md"
+              aria-pressed="false"
+            >
+              <b>Project CLAUDE.md</b><small>@AGENTS.md 어댑터</small>
+            </button>
+            <button
+              class="instruction-file"
+              type="button"
+              data-instruction-source="./instructions/claude-code/local/CLAUDE.local.md"
+              data-instruction-label="claude-code/local/CLAUDE.local.md"
+              aria-pressed="false"
+            >
+              <b>CLAUDE.local.md</b><small>개인 프로젝트 범위</small>
+            </button>
+          </div>
+
+          <div class="file-group">
+            <span>Gemini CLI</span>
+            <button
+              class="instruction-file"
+              type="button"
+              data-instruction-source="./instructions/gemini-cli/README.md"
+              data-instruction-label="gemini-cli/README.md"
+              aria-pressed="false"
+            >
+              <b>README.md</b><small>범위·설치 방법</small>
+            </button>
+            <button
+              class="instruction-file"
+              type="button"
+              data-instruction-source="./instructions/gemini-cli/global/GEMINI.md"
+              data-instruction-label="gemini-cli/global/GEMINI.md"
+              aria-pressed="false"
+            >
+              <b>Global GEMINI.md</b><small>~/.gemini</small>
+            </button>
+            <button
+              class="instruction-file"
+              type="button"
+              data-instruction-source="./instructions/gemini-cli/project/GEMINI.md"
+              data-instruction-label="gemini-cli/project/GEMINI.md"
+              aria-pressed="false"
+            >
+              <b>Project GEMINI.md</b><small>@./AGENTS.md 어댑터</small>
+            </button>
+            <button
+              class="instruction-file"
+              type="button"
+              data-instruction-source="./instructions/gemini-cli/local/component/GEMINI.md"
+              data-instruction-label="gemini-cli/local/component/GEMINI.md"
+              aria-pressed="false"
+            >
+              <b>JIT GEMINI.md</b><small>하위 폴더 범위</small>
+            </button>
+          </div>
+        </nav>
+
+        <article class="instruction-reader" aria-live="polite">
+          <header class="reader-toolbar">
+            <div>
+              <span class="reader-status">SELECTED FILE</span>
+              <strong data-reader-title>shared/AGENTS.md</strong>
+            </div>
+            <div class="reader-actions">
+              <button type="button" data-reader-copy>내용 복사</button>
+              <a href="./instructions/shared/AGENTS.md" data-reader-open target="_blank">새 탭</a>
+              <a href="./instructions/shared/AGENTS.md" data-reader-download download>MD 다운로드</a>
+            </div>
+          </header>
+          <pre class="reader-content" tabindex="0"><code data-reader-content>지침 파일을 불러오는 중입니다…</code></pre>
+          <p class="reader-error" data-reader-error hidden>
+            파일을 불러오지 못했습니다. 새 탭 버튼으로 원문을 열어 주세요.
+          </p>
+        </article>
+      </div>
+    </section>
 
     <div class="layout">
       <aside class="toc" aria-label="목차">

@@ -389,6 +389,30 @@ kbd {
   transform: translateY(-1px);
 }
 
+.download-primary-actions {
+  display: flex;
+  flex: 0 0 auto;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.45rem;
+}
+
+.download-view {
+  padding: 0.58rem 0.72rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 9px;
+  background: var(--card);
+  color: var(--ink);
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.download-view:hover {
+  color: var(--ink);
+  transform: translateY(-1px);
+}
+
 .download-grid {
   display: grid;
   margin-top: 0.8rem;
@@ -428,6 +452,211 @@ kbd {
   color: var(--muted);
   font-family: var(--mono);
   font-size: 0.63rem;
+}
+
+.instruction-library {
+  width: min(calc(100% - 32px), var(--content));
+  margin: 3.2rem auto 0;
+  scroll-margin-top: 5.5rem;
+}
+
+.library-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 1.2rem;
+}
+
+.library-heading .eyebrow {
+  margin-bottom: 0.45rem;
+}
+
+.library-heading h2 {
+  margin: 0;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  letter-spacing: -0.04em;
+}
+
+.library-heading p:not(.eyebrow) {
+  max-width: 820px;
+  margin: 0.7rem 0 0;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.library-count {
+  flex: 0 0 auto;
+  padding: 0.45rem 0.6rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  font-weight: 800;
+}
+
+.library-shell {
+  display: grid;
+  overflow: hidden;
+  min-height: 680px;
+  border: 1px solid var(--line-strong);
+  border-radius: 18px;
+  background: var(--card);
+  box-shadow: 8px 8px 0 color-mix(in srgb, var(--blue) 18%, transparent);
+  grid-template-columns: 285px minmax(0, 1fr);
+}
+
+.instruction-file-list {
+  overflow-y: auto;
+  max-height: 760px;
+  padding: 0.85rem;
+  border-right: 1px solid var(--line);
+  background: var(--paper-deep);
+}
+
+.file-group + .file-group {
+  margin-top: 1rem;
+}
+
+.file-group > span {
+  display: block;
+  padding: 0 0.4rem 0.35rem;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.instruction-file {
+  display: grid;
+  width: 100%;
+  padding: 0.62rem 0.68rem;
+  border: 1px solid transparent;
+  border-radius: 9px;
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+  gap: 0.18rem;
+  text-align: left;
+}
+
+.instruction-file + .instruction-file {
+  margin-top: 0.18rem;
+}
+
+.instruction-file:hover {
+  border-color: var(--line);
+  background: var(--card);
+}
+
+.instruction-file.active {
+  border-color: var(--line-strong);
+  background: var(--card);
+  box-shadow: 3px 3px 0 var(--green);
+}
+
+.instruction-file b {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  overflow-wrap: anywhere;
+}
+
+.instruction-file small {
+  color: var(--muted);
+  font-size: 0.68rem;
+}
+
+.instruction-reader {
+  display: grid;
+  min-width: 0;
+  grid-template-rows: auto 1fr;
+}
+
+.reader-toolbar {
+  display: flex;
+  min-height: 70px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid var(--line);
+  gap: 1rem;
+}
+
+.reader-toolbar > div:first-child {
+  display: grid;
+  min-width: 0;
+  gap: 0.14rem;
+}
+
+.reader-status {
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 0.61rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+
+.reader-toolbar strong {
+  overflow: hidden;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.reader-actions {
+  display: flex;
+  flex: 0 0 auto;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.42rem;
+}
+
+.reader-actions button,
+.reader-actions a {
+  min-height: 36px;
+  padding: 0.48rem 0.62rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--card);
+  color: var(--ink);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.reader-actions a:last-child {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.reader-content {
+  overflow: auto;
+  max-height: 690px;
+  margin: 0;
+  padding: 1.2rem;
+  border: 0;
+  border-radius: 0;
+  background: color-mix(in srgb, var(--paper) 72%, var(--card));
+  color: var(--ink);
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  line-height: 1.65;
+  tab-size: 2;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.reader-error {
+  margin: 1rem;
+  color: var(--red);
+  font-weight: 700;
 }
 
 .button {
@@ -1389,6 +1618,10 @@ pre .value {
 }
 
 @media (max-width: 1020px) {
+  .library-shell {
+    grid-template-columns: 235px minmax(0, 1fr);
+  }
+
   .hero-grid {
     grid-template-columns: 1fr;
     gap: 2.5rem;
@@ -1455,6 +1688,48 @@ pre .value {
 
   .download-grid {
     grid-template-columns: 1fr;
+  }
+
+  .download-primary-actions,
+  .reader-actions {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .library-heading,
+  .reader-toolbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .library-shell {
+    display: block;
+    min-height: 0;
+  }
+
+  .instruction-file-list {
+    display: grid;
+    overflow: auto hidden;
+    max-height: none;
+    padding-bottom: 1rem;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+    grid-auto-columns: minmax(210px, 76vw);
+    grid-auto-flow: column;
+    overscroll-behavior-inline: contain;
+  }
+
+  .file-group {
+    display: grid;
+    align-content: start;
+  }
+
+  .file-group + .file-group {
+    margin-top: 0;
+  }
+
+  .reader-content {
+    max-height: 70vh;
   }
 
   .topbar-inner,
@@ -1608,6 +1883,7 @@ pre .value {
   .toc,
   .mobile-toc,
   .reading-progress,
+  .instruction-library,
   .hero-actions,
   .copy-button,
   .check-item input {

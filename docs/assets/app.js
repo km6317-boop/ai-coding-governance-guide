@@ -169,4 +169,80 @@
       label.classList.remove("done");
     });
   });
+
+  const instructionButtons = [...document.querySelectorAll("[data-instruction-source]")];
+  const readerTitle = document.querySelector("[data-reader-title]");
+  const readerContent = document.querySelector("[data-reader-content]");
+  const readerStatus = document.querySelector(".reader-status");
+  const readerError = document.querySelector("[data-reader-error]");
+  const readerOpen = document.querySelector("[data-reader-open]");
+  const readerDownload = document.querySelector("[data-reader-download]");
+  const readerCopy = document.querySelector("[data-reader-copy]");
+  let currentInstruction = "";
+  let activeRequest = 0;
+
+  const loadInstruction = async (button) => {
+    const source = button.dataset.instructionSource;
+    const label = button.dataset.instructionLabel || source;
+    if (!source || !readerContent) return;
+
+    instructionButtons.forEach((item) => {
+      const selected = item === button;
+      item.classList.toggle("active", selected);
+      item.setAttribute("aria-pressed", String(selected));
+    });
+
+    if (readerTitle) readerTitle.textContent = label;
+    if (readerStatus) readerStatus.textContent = "LOADING";
+    if (readerError) readerError.hidden = true;
+    readerContent.textContent = "지침 파일을 불러오는 중입니다…";
+    if (readerOpen) readerOpen.href = source;
+    if (readerDownload) {
+      readerDownload.href = source;
+      readerDownload.setAttribute("download", label.split("/").pop() || "instructions.md");
+    }
+
+    const requestId = ++activeRequest;
+    try {
+      const response = await fetch(source, { cache: "no-cache" });
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      const text = await response.text();
+      if (requestId !== activeRequest) return;
+      currentInstruction = text;
+      readerContent.textContent = text;
+      if (readerStatus) {
+        const lineCount = text.split(/\r?\n/).length;
+        readerStatus.textContent = `LOADED · ${lineCount} LINES`;
+      }
+    } catch {
+      if (requestId !== activeRequest) return;
+      currentInstruction = "";
+      readerContent.textContent = "";
+      if (readerStatus) readerStatus.textContent = "LOAD FAILED";
+      if (readerError) readerError.hidden = false;
+    }
+  };
+
+  instructionButtons.forEach((button) => {
+    button.addEventListener("click", () => loadInstruction(button));
+  });
+
+  readerCopy?.addEventListener("click", async () => {
+    if (!currentInstruction) return;
+    const previous = readerCopy.textContent;
+    try {
+      await copyText(currentInstruction);
+      readerCopy.textContent = "복사됨";
+    } catch {
+      readerCopy.textContent = "복사 실패";
+    }
+    window.setTimeout(() => {
+      readerCopy.textContent = previous;
+    }, 1400);
+  });
+
+  const initialInstruction = instructionButtons.find((button) =>
+    button.classList.contains("active"),
+  );
+  if (initialInstruction) loadInstruction(initialInstruction);
 })();
