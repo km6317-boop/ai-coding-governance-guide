@@ -160,6 +160,137 @@
         <span class="library-count">13 MD FILES</span>
       </header>
 
+      <div class="placement-guide" aria-labelledby="placement-title">
+        <div class="placement-intro">
+          <span class="download-kicker">WHERE · WHAT · WHY</span>
+          <h3 id="placement-title">AI별 설치 위치와 작성 내용</h3>
+          <p>
+            <code>~</code>는 현재 사용자의 홈 폴더, <code>repo/</code>는 Git 저장소
+            루트입니다. 프로젝트 명령은 반드시 해당 저장소의 manifest와 CI를 확인해
+            대괄호 부분을 바꾸세요.
+          </p>
+        </div>
+
+        <div class="table-wrap placement-table">
+          <table>
+            <thead>
+              <tr>
+                <th>AI · 범위</th>
+                <th>폴더</th>
+                <th>파일</th>
+                <th>넣어야 할 내용</th>
+                <th>Git 공유</th>
+                <th>넣지 말아야 할 내용</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><b>Codex</b><br />전역</td>
+                <td><code>~/.codex/</code></td>
+                <td><code>AGENTS.md</code></td>
+                <td>선호 언어, 작업 전 확인, 검증·보고 방식처럼 모든 저장소에 적용할 개인 기본값</td>
+                <td><span class="scope-no">아니요</span></td>
+                <td>특정 프로젝트 명령·아키텍처·팀 정책</td>
+              </tr>
+              <tr>
+                <td><b>Codex</b><br />프로젝트</td>
+                <td><code>repo/</code></td>
+                <td><code>AGENTS.md</code></td>
+                <td>5계층 공통 계약, Spec Kit·OKF 규칙, 실제 검사 명령, 보안 경계, 완료 조건</td>
+                <td><span class="scope-yes">예</span></td>
+                <td>개인 경로·토큰·AI 제품에만 해당하는 설정</td>
+              </tr>
+              <tr>
+                <td><b>Codex</b><br />하위 경로</td>
+                <td><code>repo/&lt;component&gt;/</code></td>
+                <td><code>AGENTS.md</code></td>
+                <td>그 폴더의 수정 경계, 추가 검사, 관련 feature spec·ADR 링크</td>
+                <td><span class="scope-yes">필요 시</span></td>
+                <td>루트 규칙 복제, 보안·승인·완료 조건 약화</td>
+              </tr>
+
+              <tr>
+                <td><b>Claude Code</b><br />전역</td>
+                <td><code>~/.claude/</code></td>
+                <td><code>CLAUDE.md</code></td>
+                <td>선호 언어, 개인 작업 습관, 공통 계약을 존중하는 기본 동작</td>
+                <td><span class="scope-no">아니요</span></td>
+                <td>프로젝트 고유 명령·팀 결정·비밀값</td>
+              </tr>
+              <tr>
+                <td><b>Claude Code</b><br />프로젝트</td>
+                <td><code>repo/</code></td>
+                <td><code>AGENTS.md</code><br /><code>CLAUDE.md</code></td>
+                <td>
+                  <code>AGENTS.md</code>에는 공통 계약,
+                  <code>CLAUDE.md</code>에는 <code>@AGENTS.md</code>와 Claude 전용 차이
+                </td>
+                <td><span class="scope-yes">예</span></td>
+                <td>공통 계약의 복사본, 개인 권한·로컬 URL</td>
+              </tr>
+              <tr>
+                <td><b>Claude Code</b><br />개인 로컬</td>
+                <td><code>repo/</code></td>
+                <td><code>CLAUDE.local.md</code></td>
+                <td>현재 컴퓨터의 비밀값 없는 sandbox URL, fixture, 개인 검증 메모</td>
+                <td><span class="scope-no">아니요 · gitignore</span></td>
+                <td>팀 표준, Spec 수용 기준, OKF 결정, 인증 정보</td>
+              </tr>
+
+              <tr>
+                <td><b>Gemini CLI</b><br />전역</td>
+                <td><code>~/.gemini/</code></td>
+                <td><code>GEMINI.md</code></td>
+                <td>선호 언어, 개인 작업 습관, 모든 workspace에 적용할 기본 동작</td>
+                <td><span class="scope-no">아니요</span></td>
+                <td>프로젝트 고유 명령·팀 결정·비밀값</td>
+              </tr>
+              <tr>
+                <td><b>Gemini CLI</b><br />프로젝트</td>
+                <td><code>repo/</code></td>
+                <td><code>AGENTS.md</code><br /><code>GEMINI.md</code></td>
+                <td>
+                  <code>AGENTS.md</code>에는 공통 계약,
+                  <code>GEMINI.md</code>에는 <code>@./AGENTS.md</code>와 Gemini 전용 차이
+                </td>
+                <td><span class="scope-yes">예</span></td>
+                <td><code>context.fileName</code>으로 같은 공통 규칙을 중복 로드하는 구성</td>
+              </tr>
+              <tr>
+                <td><b>Gemini CLI</b><br />하위 경로 JIT</td>
+                <td><code>repo/&lt;component&gt;/</code></td>
+                <td><code>GEMINI.md</code></td>
+                <td>파일 접근 시 필요한 컴포넌트 경계, 추가 검사, 관련 spec·ADR 링크</td>
+                <td><span class="scope-yes">필요 시</span></td>
+                <td>개인 로컬 전용 정보—Gemini에는 전용 private local 지침명이 없음</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="settings-separation">
+          <article>
+            <b>Codex 실행 설정</b>
+            <p><code>~/.codex/config.toml</code> · <code>repo/.codex/config.toml</code></p>
+          </article>
+          <article>
+            <b>Claude 실행 설정</b>
+            <p>
+              <code>~/.claude/settings.json</code> · <code>repo/.claude/settings.json</code> ·
+              <code>settings.local.json</code>
+            </p>
+          </article>
+          <article>
+            <b>Gemini 실행 설정</b>
+            <p><code>~/.gemini/settings.json</code> · <code>repo/.gemini/settings.json</code></p>
+          </article>
+        </div>
+        <p class="settings-note">
+          위 설정 파일에는 승인·샌드박스·MCP·Hook 같은 실행 통제를 두고, 자연어 작업
+          계약과 비밀값을 섞지 않습니다.
+        </p>
+      </div>
+
       <div class="library-shell">
         <nav class="instruction-file-list" aria-label="열람할 지침 파일">
           <div class="file-group">
@@ -171,7 +302,7 @@
               data-instruction-label="shared/AGENTS.md"
               aria-pressed="true"
             >
-              <b>AGENTS.md</b><small>5계층 공통 운영 계약</small>
+              <b>AGENTS.md</b><small>→ repo/AGENTS.md · 공통 계약</small>
             </button>
             <button
               class="instruction-file"
@@ -180,7 +311,7 @@
               data-instruction-label="README.md"
               aria-pressed="false"
             >
-              <b>README.md</b><small>전체 설치 안내</small>
+              <b>README.md</b><small>→ 먼저 읽기 · 전체 설치 안내</small>
             </button>
           </div>
 
@@ -193,7 +324,7 @@
               data-instruction-label="codex/README.md"
               aria-pressed="false"
             >
-              <b>README.md</b><small>범위·설치 방법</small>
+              <b>README.md</b><small>→ Codex 설치 안내</small>
             </button>
             <button
               class="instruction-file"
@@ -202,7 +333,7 @@
               data-instruction-label="codex/global/AGENTS.md"
               aria-pressed="false"
             >
-              <b>Global AGENTS.md</b><small>~/.codex</small>
+              <b>Global AGENTS.md</b><small>→ ~/.codex/AGENTS.md</small>
             </button>
             <button
               class="instruction-file"
@@ -211,7 +342,7 @@
               data-instruction-label="codex/local/component/AGENTS.md"
               aria-pressed="false"
             >
-              <b>Nested AGENTS.md</b><small>하위 폴더 범위</small>
+              <b>Nested AGENTS.md</b><small>→ repo/&lt;component&gt;/AGENTS.md</small>
             </button>
           </div>
 
@@ -224,7 +355,7 @@
               data-instruction-label="claude-code/README.md"
               aria-pressed="false"
             >
-              <b>README.md</b><small>범위·설치 방법</small>
+              <b>README.md</b><small>→ Claude 설치 안내</small>
             </button>
             <button
               class="instruction-file"
@@ -233,7 +364,7 @@
               data-instruction-label="claude-code/global/CLAUDE.md"
               aria-pressed="false"
             >
-              <b>Global CLAUDE.md</b><small>~/.claude</small>
+              <b>Global CLAUDE.md</b><small>→ ~/.claude/CLAUDE.md</small>
             </button>
             <button
               class="instruction-file"
@@ -242,7 +373,7 @@
               data-instruction-label="claude-code/project/CLAUDE.md"
               aria-pressed="false"
             >
-              <b>Project CLAUDE.md</b><small>@AGENTS.md 어댑터</small>
+              <b>Project CLAUDE.md</b><small>→ repo/CLAUDE.md · @AGENTS.md</small>
             </button>
             <button
               class="instruction-file"
@@ -251,7 +382,7 @@
               data-instruction-label="claude-code/local/CLAUDE.local.md"
               aria-pressed="false"
             >
-              <b>CLAUDE.local.md</b><small>개인 프로젝트 범위</small>
+              <b>CLAUDE.local.md</b><small>→ repo/CLAUDE.local.md · gitignore</small>
             </button>
           </div>
 
@@ -264,7 +395,7 @@
               data-instruction-label="gemini-cli/README.md"
               aria-pressed="false"
             >
-              <b>README.md</b><small>범위·설치 방법</small>
+              <b>README.md</b><small>→ Gemini 설치 안내</small>
             </button>
             <button
               class="instruction-file"
@@ -273,7 +404,7 @@
               data-instruction-label="gemini-cli/global/GEMINI.md"
               aria-pressed="false"
             >
-              <b>Global GEMINI.md</b><small>~/.gemini</small>
+              <b>Global GEMINI.md</b><small>→ ~/.gemini/GEMINI.md</small>
             </button>
             <button
               class="instruction-file"
@@ -282,7 +413,7 @@
               data-instruction-label="gemini-cli/project/GEMINI.md"
               aria-pressed="false"
             >
-              <b>Project GEMINI.md</b><small>@./AGENTS.md 어댑터</small>
+              <b>Project GEMINI.md</b><small>→ repo/GEMINI.md · @./AGENTS.md</small>
             </button>
             <button
               class="instruction-file"
@@ -291,7 +422,7 @@
               data-instruction-label="gemini-cli/local/component/GEMINI.md"
               aria-pressed="false"
             >
-              <b>JIT GEMINI.md</b><small>하위 폴더 범위</small>
+              <b>JIT GEMINI.md</b><small>→ repo/&lt;component&gt;/GEMINI.md</small>
             </button>
           </div>
         </nav>

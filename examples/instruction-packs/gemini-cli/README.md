@@ -1,5 +1,18 @@
 # Gemini CLI 지침 팩
 
+## 폴더별로 무엇을 넣나
+
+| 범위 | 대상 폴더와 파일 | 넣을 내용 | Git |
+|---|---|---|---|
+| 전역 | `~/.gemini/GEMINI.md` | 선호 언어, 개인 작업 습관, 모든 workspace의 기본 동작 | 공유하지 않음 |
+| 프로젝트 공통 | `repo/AGENTS.md` | 5계층 공통 계약, Spec Kit·OKF, 실제 검사 명령, 보안·완료 조건 | 커밋 |
+| 프로젝트 어댑터 | `repo/GEMINI.md` | `@./AGENTS.md` import와 Gemini만의 memory·Skill·trust 차이 | 커밋 |
+| 하위 경로 JIT | `repo/<component>/GEMINI.md` | 해당 경로의 작업 경계, 추가 검사, spec·ADR 링크 | 팀 규칙이면 커밋 |
+
+Gemini에는 Claude의 `CLAUDE.local.md`와 같은 전용 private local 지침명이 없습니다. 기기별
+값과 비밀은 사용자 설정 `~/.gemini/settings.json` 또는 안전한 환경 변수에 두고, 프로젝트
+실행 설정은 신뢰한 저장소의 `repo/.gemini/settings.json`에 둡니다.
+
 ## 설치
 
 1. `global/GEMINI.md`를 `~/.gemini/GEMINI.md`로 복사합니다.
